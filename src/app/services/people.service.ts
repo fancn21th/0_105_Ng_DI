@@ -4,9 +4,15 @@ import { Injectable } from "@angular/core";
   providedIn: "root"
 })
 export class PeopleService {
+  people: Array<any> = [{ id: 1, name: "Joe" }, { id: 2, name: "Alex" }];
+
   constructor() {}
 
   getPeople() {
-    return [{ name: "Joe" }, { name: "Alex" }];
+    return this.people;
+  }
+
+  updatePeopleById(id, value) {
+    this.people.find(item => item.id === id).name = value;
   }
 }
