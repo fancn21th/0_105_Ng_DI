@@ -10,7 +10,7 @@ export class PeopleService {
 
   getPeople() {
     return this.people;
-  }
+  } 
 
   updatePeopleById(id, value) {
     this.people.find(item => item.id === id).name = value;
