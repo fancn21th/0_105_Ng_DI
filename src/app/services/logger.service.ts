@@ -1,6 +1,16 @@
 import { Injectable } from "@angular/core";
 import { ConsoleWriterService } from "./console-writer.service";
 
+export const simpleLogger = {
+  log(msg: String) {
+    console.log(`I'm a simple logger: ${msg}`);
+  }
+};
+
+export const loggerFactory = (writer: ConsoleWriterService) => {
+  return new LoggerService(true, writer);
+};
+
 @Injectable({
   providedIn: "root"
 })

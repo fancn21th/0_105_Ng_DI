@@ -4,20 +4,10 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { PeopleService, AwesomePeopleService } from "./services/people.service";
 import { PeopleModule } from "./people/people.module";
-import { LoggerService } from "./services/logger.service";
+import { LoggerService, loggerFactory } from "./services/logger.service";
 // import { NewLoggerService } from "./services/new-logger.service";
 import { ConsoleWriterService } from "./services/console-writer.service";
 import { AnotherPeopleService } from "./services/another-people.service";
-
-const simpleLogger = {
-  log(msg: String) {
-    console.log(`I'm a simple logger: ${msg}`);
-  }
-};
-
-const loggerFactory = (writer: ConsoleWriterService) => {
-  return new LoggerService(true, writer);
-};
 
 @NgModule({
   declarations: [AppComponent],
