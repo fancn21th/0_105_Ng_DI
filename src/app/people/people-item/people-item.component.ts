@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Optional } from "@angular/core";
+import { Component, OnInit, Input, Host, Optional } from "@angular/core";
 import { PeopleService } from "src/app/services/people.service";
 import { LoggerService } from "src/app/services/logger.service";
 
@@ -12,7 +12,8 @@ export class PeopleItemComponent implements OnInit {
 
   constructor(
     private peopleService: PeopleService,
-    @Optional() private logger: LoggerService
+    // @Optional() private logger: LoggerService
+    @Host() @Optional() private logger: LoggerService
   ) {}
 
   ngOnInit() {}
