@@ -7,6 +7,7 @@ import { PeopleModule } from "./people/people.module";
 import { LoggerService } from "./services/logger.service";
 // import { NewLoggerService } from "./services/new-logger.service";
 import { ConsoleWriterService } from "./services/console-writer.service";
+import { AnotherPeopleService } from "./services/another-people.service";
 
 const simpleLogger = {
   log(msg: String) {
@@ -29,7 +30,8 @@ const loggerFactory = (writer: ConsoleWriterService) => {
       // useValue: simpleLogger
       useFactory: loggerFactory,
       deps: [ConsoleWriterService]
-    }
+    },
+    AnotherPeopleService
   ],
   bootstrap: [AppComponent]
 })
