@@ -9,9 +9,9 @@ import { PeopleService } from "src/app/services/people.service";
 export class PeopleComponent implements OnInit {
   people: Array<any>;
 
-  constructor(private peopleService: PeopleService) {
-    this.people = peopleService.getPeople();
-  }
+  constructor(private peopleService: PeopleService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.people = this.peopleService.getPeople();
+  }
 }
