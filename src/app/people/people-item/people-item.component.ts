@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input, Optional } from "@angular/core";
 import { PeopleService } from "src/app/services/people.service";
 import { LoggerService } from "src/app/services/logger.service";
 
@@ -12,13 +12,14 @@ export class PeopleItemComponent implements OnInit {
 
   constructor(
     private peopleService: PeopleService,
-    private logger: LoggerService
+    @Optional() private logger: LoggerService
   ) {}
 
   ngOnInit() {}
 
   updatePeopleName(value) {
     this.peopleService.updatePeopleById(this.item.id, value);
-    this.logger.log(this.item.name + " has been updated");
+    if (this.logger) this.logger.log(this.item.name + " has been updated");
+    else console.log("sorry no logger service available");
   }
 }

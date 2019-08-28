@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, SkipSelf } from "@angular/core";
 import { PeopleService } from "src/app/services/people.service";
 import { AnotherPeopleService } from "src/app/services/another-people.service";
 
@@ -16,7 +16,7 @@ import { AnotherPeopleService } from "src/app/services/another-people.service";
 export class AnotherPeopleComponent implements OnInit {
   people: Array<any>;
 
-  constructor(private peopleService: PeopleService) {}
+  constructor(@SkipSelf() private peopleService: PeopleService) {}
 
   ngOnInit() {
     this.people = this.peopleService.getPeople();
