@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
-import { PeopleService } from "./people.service";
+import { AwesomePeopleService } from "./people.service";
 
 @Injectable({
   providedIn: "root"
 })
-export class AnotherPeopleService extends PeopleService {
+export class AnotherPeopleService extends AwesomePeopleService {
   getPeople() {
     const people = super.getPeople();
     people.push({

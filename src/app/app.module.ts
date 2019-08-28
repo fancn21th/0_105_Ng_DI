@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
-import { PeopleService } from "./services/people.service";
+import { PeopleService, AwesomePeopleService } from "./services/people.service";
 import { PeopleModule } from "./people/people.module";
 import { LoggerService } from "./services/logger.service";
 // import { NewLoggerService } from "./services/new-logger.service";
@@ -23,7 +23,10 @@ const loggerFactory = (writer: ConsoleWriterService) => {
   declarations: [AppComponent],
   imports: [BrowserModule, PeopleModule],
   providers: [
-    PeopleService,
+    {
+      provide: PeopleService,
+      useClass: AwesomePeopleService
+    },
     {
       provide: LoggerService,
       // useExisting: NewLoggerService
